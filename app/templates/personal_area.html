@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Игра "Запомни числа"</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+{% if level_num != 0 %}
+<p class="p-info">{{ name }}, <br>ваш рекорд - {{ level_num }} уровень!</p>
+{% else %}
+<p class="p-info">{{ name }}, <br>вы еще не прошли ни одного уровня!</p>
+{% endif %}
+
+<a href="{{ url_for('show_game_level') }}">
+    <button id="start-play-button">НАЧАТЬ ИГРУ</button>
+</a>
+
+<a href="{{ url_for('show_statistics') }}">
+    <button id="show-statistics-button">СТАТИСТИКА</button>
+</a>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Игра "Запомни числа"</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <p class="level">Уровень {{ level }}</p>
+    <form action="" method="POST">
+        <div id="flex-container-answers">
+            <input class="flex-item" type="number" min={{ minimum }} max={{ maximum }} name="n1" required>
+            <input class="flex-item" type="number" min={{ minimum }} max={{ maximum }} name="n2" required>
+
+            {% if numbers_count > 2 %}
+            <input class="flex-item" type="number" min={{ minimum }} max={{ maximum }} name="n3" required>
+            {% endif %}
+
+            {% if numbers_count > 3 %}
+            <input class="flex-item" type="number" min={{ minimum }} max={{ maximum }} name="n4" required>
+            {% endif %}
+
+            {% if numbers_count > 4 %}
+            <input class="flex-item" type="number" min={{ minimum }} max={{ maximum }} name="n5" required>
+            {% endif %}
+
+            {% if numbers_count > 5 %}
+            <input class="flex-item" type="number" min={{ minimum }} max={{ maximum }} name="n6" required>
+            {% endif %}
+
+            {% if numbers_count > 6 %}
+            <input class="flex-item" type="number" min={{ minimum }} max={{ maximum }} name="n7" required>
+            {% endif %}
+
+            {% if numbers_count > 7 %}
+            <input class="flex-item" type="number" min={{ minimum }} max={{ maximum }} name="n8" required>
+            {% endif %}
+        </div>
+
+        <button type="submit" id="check-button">ПРОВЕРИТЬ</button>
+    </form>
+        <script>
+            let digits = {{ digits_count }};
+            let items = document.getElementsByClassName("flex-item");
+
+	        for( let i = 0; i < items.length; i++){
+                if (digits == 2) {
+                     items[i].style.width = "90px";
+                }
+
+                if (digits == 3) {
+                    items[i].style.width = "100px";
+                }
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Игра "Запомни числа"</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<p id="game-name">ИГРА "ЗАПОМНИ ЧИСЛА"</p>
+<p id="game-slogan">оцени свою зрительную память</p>
+
+<a href="{{ url_for('sign_in') }}">
+    <button id="sign-in-button">ВХОД</button>
+</a>
+<a href="{{ url_for('sign_up') }}">
+    <button id="sign-up-button">РЕГИСТРАЦИЯ</button>
+</a>
+</body>
+</html>

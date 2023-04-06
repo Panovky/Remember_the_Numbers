@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Игра "Запомни числа"</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<table id="statistics-table">
+    <caption>СТАТИСТИКА</caption>
+    <thead>
+    <tr>
+        <th>Номер уровня</th>
+        <th>Числа</th>
+        <th>Ваши ответы</th>
+        <th>Результат</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for i in range(count) %}
+    <tr>
+        <td>{{ level_nums[i] }}</td>
+        <td>{{ numbers[i] }}</td>
+        <td>{{ answers[i] }}</td>
+        <td>{{ successes[i] }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<a id="back-to-personal-area-button" href="{{ url_for('show_personal_area') }}">
+    <p>← ВЕРНУТЬСЯ В ЛИЧНЫЙ КАБИНЕТ</p>
+</a>
+</body>
+</html>

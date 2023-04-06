@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Игра "Запомни числа"</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+{% if check == 1 %}
+<p class="p-info">Браво, {{ name }}! <br>Вы угадали все числа на этом уровне.</p>
+
+<a href="{{ url_for('show_game_level') }}">
+    <button id="show-next-level-button">ИГРАТЬ ДАЛЬШЕ</button>
+</a>
+
+{% elif check == 2 %}
+<p class="p-info">Браво, {{ name }}! <br>Вы угадали все числа на каждом из уровней.</p>
+
+{% else %}
+<p class="p-info">Как жаль, {{ name }}!
+    <br>Вы не смогли отгадать все числа на этом уровне.
+    <br><br>Правильной последовательностью были числа:
+    <br>{{ numbers }}
+</p>
+{% endif %}
+
+<a href="{{ url_for('show_personal_area') }}">
+    <button id="complete-game-button">ЗАВЕРШИТЬ ИГРУ</button>
+</a>
+
+</body>
+</html>
