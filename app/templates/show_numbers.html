@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Игра "Запомни числа"</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-
-<body>
+{% extends "base.html" %}
+{% block content %}
 <p class="level">Уровень {{ level }}</p>
 <p id="countdown"></p>
 <p id="numbers"></p>
@@ -34,11 +27,11 @@
             document.getElementById('write-numbers-button').style.display = 'block';
             return;
         }
+
         document.getElementById('numbers').innerHTML = numbers[i];
-        setTimeout(() => show_new_number(i + 1), 1000)
+        setTimeout(() => show_new_number(i + 1), 1000);
     }
 
     count_down(1);
 </script>
-</body>
-</html>
+{% endblock %}

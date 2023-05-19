@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Игра "Запомни числа"</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
 {% if check == 1 %}
 <p class="p-info">Браво, {{ name }}! <br>Вы угадали все числа на этом уровне.</p>
 
@@ -27,6 +21,4 @@
 <a href="{{ url_for('show_personal_area') }}">
     <button id="complete-game-button">ЗАВЕРШИТЬ ИГРУ</button>
 </a>
-
-</body>
-</html>
+{% endblock %}

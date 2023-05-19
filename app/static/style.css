@@ -100,7 +100,7 @@ body {
     position: absolute;
     margin: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     padding-top: 50px;
     padding-bottom: 50px;
     color: #1d4603;
@@ -119,11 +119,11 @@ body {
     box-shadow: 0 0 6px 6px rgba(28, 98, 31, 0.7);
 }
 
-#sign-in-button, #start-play-button, #show-next-level-button {
+#start-play-button, #show-next-level-button {
     top: 45%;
 }
 
-#sign-up-button, #show-statistics-button, #complete-game-button {
+#show-statistics-button, #complete-game-button {
     top: 70%;
 }
 
@@ -240,11 +240,15 @@ body {
 }
 
 #statistics-table tr td:nth-child(2), #statistics-table tr td:nth-child(3) {
-    width: 40%;
+    width: 35%;
+}
+
+#statistics-table tr td:nth-child(4) {
+    width: 12%;
 }
 
 #statistics-table tr td:last-child {
-    width: 12%;
+    width: 10%;
 }
 
 #statistics-table caption {

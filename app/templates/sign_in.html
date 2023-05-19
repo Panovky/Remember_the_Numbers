@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Игра "Запомни числа"</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
 <form action="" method="POST" id="form-sign-in">
     {% if message %}
     <p class="form-message">{{ message }}</p>
@@ -24,6 +18,4 @@
         <button type="reset" class="cancel-button">Очистить</button>
     </div>
 </form>
-
-</body>
-</html>
+{% endblock %}

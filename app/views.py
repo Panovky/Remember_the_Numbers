@@ -3,7 +3,7 @@ from flask import render_template, request, redirect, make_response
 from .models import Gamer, Session, Level, NumbersList, AnswersList
 from werkzeug.security import check_password_hash, generate_password_hash
 from random import randint
-
+import time
 
 @app.route('/')
 def go_to_authorization_page():
@@ -89,10 +89,12 @@ def show_statistics():
 
     numbers = [[] for _ in range(count)]
     answers = [[] for _ in range(count)]
+    times = []
 
     for i in range(count):
         numbers_list = db.session.query(NumbersList).filter(NumbersList.level_id == levels[i].id).first()
         answers_list = db.session.query(AnswersList).filter(AnswersList.level_id == levels[i].id).first()
+        times.append(f"{answers_list.minutes} мин {answers_list.seconds} с")
 
         if (length := levels[i].numbers_count) > 0:
             numbers[i].append(numbers_list.n1)
@@ -133,7 +135,7 @@ def show_statistics():
     successes = ['пройден' if level.success == 1 else 'провален' for level in levels]
 
     return render_template('/statistics.html', count=count, level_nums=level_nums, numbers=numbers, answers=answers,
-                           successes=successes)
+                           successes=successes, times=times)
 
 
 @app.route('/game')
@@ -193,6 +195,11 @@ def get_user_answers():
     if request.method == 'POST':
         answers_list = AnswersList()
 
+        old = float(request.cookies.get('start'))
+        new = time.time()
+        answers_list.minutes = int((new - old) // 60)
+        answers_list.seconds = int((new - old) % 60)
+
         answers_list.n1 = request.form.get('n1')
         answers_list.n2 = request.form.get('n2')
 
@@ -215,8 +222,11 @@ def get_user_answers():
 
         return redirect('/results')
 
-    return render_template('answers.html', level=level.level_num, numbers_count=level.numbers_count,
-                           digits_count=level.digits_count, minimum=level.minimum, maximum=level.maximum)
+    response = make_response(render_template('answers.html', level=level.level_num, numbers_count=level.numbers_count,
+                           digits_count=level.digits_count, minimum=level.minimum, maximum=level.maximum))
+    response.set_cookie('start', str(time.time()), max_age=None)
+    return response
+
 
 
 @app.route('/results')

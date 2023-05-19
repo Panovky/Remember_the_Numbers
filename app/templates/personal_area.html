@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Игра "Запомни числа"</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
 {% if level_num != 0 %}
 <p class="p-info">{{ name }}, <br>ваш рекорд - {{ level_num }} уровень!</p>
 {% else %}
@@ -19,5 +13,4 @@
 <a href="{{ url_for('show_statistics') }}">
     <button id="show-statistics-button">СТАТИСТИКА</button>
 </a>
-</body>
-</html>
+{% endblock %}

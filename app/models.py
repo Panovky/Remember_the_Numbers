@@ -52,4 +52,6 @@ class AnswersList(db.Model):
     n6 = db.Column(db.Integer)
     n7 = db.Column(db.Integer)
     n8 = db.Column(db.Integer)
+    minutes = db.Column(db.Integer, nullable=False)
+    seconds = db.Column(db.Integer, nullable=False)
     level_id = db.Column(db.Integer, db.ForeignKey('level.id'), nullable=False)

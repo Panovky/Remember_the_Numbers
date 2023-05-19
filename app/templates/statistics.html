@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Игра "Запомни числа"</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
 <table id="statistics-table">
     <caption>СТАТИСТИКА</caption>
     <thead>
@@ -13,6 +7,7 @@
         <th>Номер уровня</th>
         <th>Числа</th>
         <th>Ваши ответы</th>
+        <th>Время</th>
         <th>Результат</th>
     </tr>
     </thead>
@@ -23,6 +18,7 @@
         <td>{{ level_nums[i] }}</td>
         <td>{{ numbers[i] }}</td>
         <td>{{ answers[i] }}</td>
+        <td>{{ times[i] }}</td>
         <td>{{ successes[i] }}</td>
     </tr>
     {% endfor %}
@@ -32,5 +28,4 @@
 <a id="back-to-personal-area-button" href="{{ url_for('show_personal_area') }}">
     <p>← ВЕРНУТЬСЯ В ЛИЧНЫЙ КАБИНЕТ</p>
 </a>
-</body>
-</html>
+{% endblock %}
