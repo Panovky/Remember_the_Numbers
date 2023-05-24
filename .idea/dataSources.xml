@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="game_db" uuid="adede746-a46e-491d-84a2-12abae68e316">
+    <data-source source="LOCAL" name="game_db" uuid="a5985044-5a8b-45e2-8ac3-a92e9f9ee708">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\panov\PycharmProjects\Remember_the_Numbers\instance\game_db.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\panov\Repos\Remember_the_Numbers\instance\game_db.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.40.1/org/xerial/sqlite-jdbc/3.40.1.0/sqlite-jdbc-3.40.1.0.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>
