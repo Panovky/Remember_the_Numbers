@@ -11,14 +11,14 @@
     let last_index = numbers.length - 1;
 
     function count_down(i) {
-        if (i > 3) {
+        if (i < 1) {
             document.getElementById('countdown').style.display = 'none';
             document.getElementById('numbers').style.display = 'block';
             show_new_number(0);
             return;
         }
         document.getElementById('countdown').innerHTML = i;
-        setTimeout(() => count_down(i + 1), 1000);
+        setTimeout(() => count_down(i - 1), 1000);
     }
 
     function show_new_number(i) {
@@ -32,6 +32,6 @@
         setTimeout(() => show_new_number(i + 1), 1000);
     }
 
-    count_down(1);
+    count_down(3);
 </script>
 {% endblock %}

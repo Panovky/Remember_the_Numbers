@@ -119,6 +119,14 @@ body {
     box-shadow: 0 0 6px 6px rgba(28, 98, 31, 0.7);
 }
 
+#sign-in-button {
+    top: 35%;
+}
+
+#sign-up-button {
+    top: 65%;
+}
+
 #start-play-button, #show-next-level-button {
     top: 45%;
 }
